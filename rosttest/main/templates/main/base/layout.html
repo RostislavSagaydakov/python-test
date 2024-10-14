@@ -1,0 +1,28 @@
+{% load static %}
+{% load menu_tags %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/styles/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{{ site_setting.favicon_url }}">
+</head>
+<body>
+    <div id="wrapper">
+        <aside id="sidebar">
+            <img src="{{ site_setting.logo_url }}" alt="{{ site_setting.name }}" height="50">
+            <nav>
+                {% show_menu %}
+            </nav>
+        </aside>
+        <main id="main">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+</body>
+</html>

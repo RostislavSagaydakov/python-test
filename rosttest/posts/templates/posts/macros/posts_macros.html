@@ -1,0 +1,33 @@
+{% for post in posts %}
+    {% if post.logo %}
+        <img src="{{ post.logo.image.url }}" alt="{{ post.logo.name }}" width="200">
+    {% endif %}
+    <h2>{{ post.title }}</h2>
+    {% if post.file %}
+    <h2><a href="{{ post.file.url }}">{{ post.filename }}</a></h2>
+    {% endif %}
+
+    <!-- Список социальных сетей -->
+    {% if post.social_networks.all %}
+        <ul>
+            {% for network in post.social_networks.all %}
+                <li><a href="{{ network.url }}">{{ network.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Социальные сети не указаны.</p>
+    {% endif %}
+
+    <h2>{{ post.slug }}</h2>
+    <p>{{ post.short_content }}</p>
+
+    <!-- Вывод основного изображения -->
+    {% if post.image_logo %}
+        <img src="{{ post.image_logo.url }}" alt="{{ post.title }}">
+    {% endif %}
+
+    <!-- Вывод дополнительных изображений -->
+    {% for image in post.images.all %}
+        <img src="{{ image.image.url }}" alt="{{ post.title }}">
+    {% endfor %}
+{% endfor %}

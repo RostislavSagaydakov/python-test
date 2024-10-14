@@ -1,0 +1,19 @@
+# create admin user
+python manage.py createsuperuser
+
+# run server
+python manage.py runserver
+
+# create new app for main page
+# add 'main' to settings.py - INSTALLED_APPS
+python manage.py startapp main
+
+# all templates should be in 'templates/main' folder of your app
+# all css/js/images in 'static/main' folder
+# 'main' in this case is the same name as your app
+
+# create DB from models.py file
+python manage.py makemigrations
+
+# start migration
+python manage.py migrate
